@@ -5,7 +5,8 @@ input[type="radio"] {
   padding: 2px;
   background-clip: content-box;
   border: 1px solid $red;
-  border-radius: 50%;
+  border-radius: 100%;
+
 }
 
 input[type="radio"]:checked {

@@ -1,17 +1,17 @@
 <% provide(:title, 'Sign in') %>
-<div c="d-flex align-items-center justify-content-center mt-4">
+<div class="d-flex align-items-center justify-content-center mt-4">
   <div>
     <h2 class="text-center"><%= t('forms.sign_in') %></h2>
     <%= link_to sign_up_path do %>
       <h5 class="text-center fw-semibold text-dark m-0"><%= t('sessions.create_an_account') %></h5>
     <% end %>
 
-    <div class="mt-5 input-size">
+    <div class="mt-5 input-size w-30 ">
       <%= form_with model: @user, url: login_path, scope: :user  do |form| %>
         <%= render partial: "shared/form_errors", locals: { object: form.object } %>
 
         <div class="mb-3 row">
-          <div class="col-md-3">
+          <div class="col-md-3 ">
             <%= form.label :email, class: "form-label" %>
           </div>
           <div class="col-md-9">
@@ -29,9 +29,8 @@
         </div>
 
         <div class="text-center">
-          <%= form.submit t('forms.sign_in'), class: "mt-5 w-75" %>
+          <%= form.submit t('forms.sign_in'), class: "mt-5 w-20" %>
         </div>
-
       <% end %>
     </div>
   </div>
