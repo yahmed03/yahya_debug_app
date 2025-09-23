@@ -6,7 +6,11 @@
   <div class="border border-danger border-bottom-0 rounded overflow-hidden mt-4 w-100">
     <div class="table-responsive">
       <table class="table border-danger m-0">
-        <tbody class="table-group-divider border-danger">
+      <tbody class="table-group-divider border-danger">
+      <th><%=t('check_answers.table.question_number')%></th>
+      <th><%=t('check_answers.table.question')%></th>
+      <th><%=t('check_answers.table.answer')%></th>
+      <th><%=t('check_answers.table.change_answer')%></th>
           <% question_page_number = 0 %>
           <% @quiz_results.answer.each do |question, answers| %>
             <% question_page_number += 1 %>

@@ -27,7 +27,7 @@ module QuizResultsHelper
   #
   def total_correct_answers(quiz_results)
     total_correct = 0
-    quiz_results.answer.each_with_index do |answers, page_index|
+     quiz_results.answer.each_with_index do |answers, page_index|
       answers[1].each_with_index do |answer, question_index|
         correct_answer = fetch_correct_answer(page_index, question_index)
         total_correct += 1 if check_answer(correct_answer, answer)
@@ -60,7 +60,7 @@ module QuizResultsHelper
   # - Boolean indicating whether the user's answer is correct.
   #
   def check_answer(correct_answer, user_answer)
-    return false if correct_answer == 'N/A' || user_answer == 'N/A'
+    return false if correct_answer == 'N/A' || user_answer == 'N/A' || correct_answer != user_answer
 
     correct_answer.strip.downcase
   end
