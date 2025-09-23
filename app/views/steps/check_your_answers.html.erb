@@ -7,12 +7,13 @@
     <div class="table-responsive">
 
       <table class="table border-danger m-0">
-        <tbody class="table-group-divider border-danger">
-          # <% question_page_number = 0 %>
-          <th>Question Number</>
-          <th>Question </>
-          <th>Answer</>
-          <th>Change Answer</>
+      <tbody class="table-group-divider border-danger">
+      <th><%=t('check_answers.table.question_number')%></th>
+      <th><%=t('check_answers.table.question')%></th>
+      <th><%=t('check_answers.table.answer')%></th>
+      <th><%=t('check_answers.table.change_answer')%></th>
+          <% question_page_number = 0 %>
+
           <% @quiz_results.answer.each do |question, answers| %>
             <% question_page_number += 1 %>
             <%= answers.each_with_index do |answer, index| %>
