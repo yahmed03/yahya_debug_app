@@ -5,6 +5,7 @@
 
   <div class="border border-danger border-bottom-0 rounded overflow-hidden mt-4 w-100">
     <div class="table-responsive">
+
       <table class="table border-danger m-0">
       <tbody class="table-group-divider border-danger">
       <th><%=t('check_answers.table.question_number')%></th>
@@ -12,15 +13,16 @@
       <th><%=t('check_answers.table.answer')%></th>
       <th><%=t('check_answers.table.change_answer')%></th>
           <% question_page_number = 0 %>
+
           <% @quiz_results.answer.each do |question, answers| %>
             <% question_page_number += 1 %>
             <%= answers.each_with_index do |answer, index| %>
               <tr>
-                <td><%= continuous_index(question_page_number, index+1) %></td>
+                # <td><%= continuous_index(question_page_number, index+1) %></td>
                 <td><%= format_quiz_question(question, index) %></td>
-                <td><% answer %></td>
+                # <td class="te"><% answer %></td>
                 <td class="text-center">
-                  <%= link_to t('check_answers.table.change'), edit_step_path(id: question_page_number, answer: @quiz_results.answer), class: "btn btn-danger px-3" %>
+                  # <%= link_to t('check_answers.table.change'), edit_step_path(id: question_page_number, answer: @quiz_results.answer), class: "btn btn-danger px-3" %>
                 </td>
               </tr>
             <% end %>
