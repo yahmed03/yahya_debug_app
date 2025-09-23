@@ -24,6 +24,7 @@
                 <td class="te"><%=answer %></td>
                 <td class="text-center">
                 <%= link_to t('check_answers.table.change'), edit_step_path(id: question_page_number, answer: @quiz_results.answer), class: "btn btn-danger px-3" %>
+
                 </td>
               </tr>
             <% end %>

@@ -138,7 +138,11 @@ module QuizResultsHelper
   # - String indicating whether the user's answer was "Correct" or "Incorrect".
   #
   def evaluate_result(correct_answer, user_answer)
-    'Incorrect'
+      if user_answer != correct_answer 
+        return 'Incorrect'
+      else 
+        return 'Correct'
+      end
   end
 
   # Generates table data (`<td>`) for question, correct answer, user's answer, and result.
