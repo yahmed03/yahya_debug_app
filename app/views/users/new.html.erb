@@ -1,37 +1,35 @@
-<% provide(:title, 'Sign in') %>
-<div class="d-flex align-items-center justify-content-center mt-4">
-  <div>
-    <h2 class="text-center"><%= t('forms.sign_in') %></h2>
-    <%= link_to sign_up_path do %>
-      <h5 class="text-center fw-semibold text-dark m-0"><%= t('sessions.create_an_account') %></h5>
-    <% end %>
-
-    <div class="mt-5 input-size w-30 ">
-      <%= form_with model: @user, url: login_path, scope: :user  do |form| %>
-        <%= render partial: "shared/form_errors", locals: { object: form.object } %>
-
-        <div class="mb-3 row">
-          <div class="col-md-3 ">
-            <%= form.label :email, class: "form-label" %>
+<% provide(:title, 'Sign up') %>
+<div class="d-flex align-items-center h-100">
+  <div class="row col-12 justify-content-center mt-5 pt-5">
+    <div class="col-md-5 col-12 border-end border-2 border-danger p-0 mobile-margin" id="mobile-border">
+      <h2 class="text-center text-dark"><%= t('users.sign_up_headline') %></h2>
+      <h4 class="text-center text-dark fw-normal mt-3"><%= t('users.sign_up_line_one') %></h4>
+      <%= image_tag 'sign-up-welcome.svg' %>
+    </div>
+    <div class="col-md-4 col-12 ms-5">
+      <h2 class="text-center text-dark"><%= t('users.create_account') %></h2>
+      <div class="mt-5">
+        <%= form_with model: @user, url: sign_up_path, html: { class: "signup-form" } do |form| %>
+          <%= render partial: "shared/form_errors", locals: { object: form.object } %>
+          <%= form.label :username, class: "form-label mt-3" %>
+          <%= form.text_field :username, class: "form-control border-danger input-size", required: true %>
+          <%= form.label :email, class: "form-label mt-3" %>
+          <%= form.email_field :email, class: "form-control border-danger input-size", required: true %>
+          <%= form.label :password, class: "form-label mt-3" %>
+          <%= form.password_field :password, class: "form-control border-danger input-size", required: true %>
+          <%= form.label :password_confirmation, class: "form-label mt-3" %>
+          <%= form.password_field :password_confirmation, class: "form-control border-danger input-size", required: true %>
+          <div class=  "text-center text-light">
+            <%= form.submit t('forms.sign_up'), class: "btn btn-danger mt-5 w-75 text-white" %>
           </div>
-          <div class="col-md-9">
-            <%= form.email_field :email, class: "form-control border-danger", required: true %>
-          </div>
+        <% end %>
+        <div class="d-flex align-items-center justify-content-center mt-3">
+          <h5 class="text-center text-dark fw-normal pe-1"><%= t('users.login_prompt') %></h5>
+          <%= link_to login_path do %>
+            <h5 class="text-center text-danger fw-semibold text-danger"><%= t('forms.sign_in') %></h5>
+          <% end %>
         </div>
-        
-        <div class="mb-3 row">
-          <div class="col-md-3">
-            <%= form.label :password, class: "form-label" %>
-          </div>
-          <div class="col-md-9">
-            <%= form.password_field :password, class: "form-control border-danger", required: true %>
-          </div>
-        </div>
-
-        <div class="text-center">
-          <%= form.submit t('forms.sign_in'), class: "btn btn-danger mt-5 w-20" %>
-        </div>
-      <% end %>
+      </div>
     </div>
   </div>
 </div>
